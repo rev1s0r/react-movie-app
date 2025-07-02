@@ -6,17 +6,14 @@ import MovieCard from '../components/MovieCard';
 function Favorites () {
     const {favorites} = useMovieContext();
 
-    if(favorites) {
-        return(
+    if(favorites && favorites.length > 0) {
+        return (
             <div className="movies-grid">
-                {favorites.map(
-                    (movie) =>
-                    (
-                        <MovieCard movie={movie} key={movie.id} />
-                    )
-                )}
+                {favorites.map((movie) => (
+                    <MovieCard movie={movie} key={movie.id} />
+                ))}
             </div>
-        )
+        );
     }
 
     return (
